@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <h1>Register</h1>
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email,{ 'attr': {'style': 'background-color: #F5F5F5;margin-left:10px;color:#00B8D4;'}}) }}
+        {{ form_row(registrationForm.matfis,{ 'attr': {'style': 'background-color: #F5F5F5;margin-left:10px;color:#00B8D4;'}}) }}
+        {{ form_row(registrationForm.nom,{ 'attr': {'style': 'background-color: #F5F5F5;margin-left:10px;color:#00B8D4;'}}) }}
+        {{ form_row(registrationForm.numtel,{ 'attr': {'style': 'background-color: #F5F5F5;margin-left:10px;color:#00B8D4;'}}) }}
+        {{ form_row(registrationForm.nbsalle,{ 'attr': {'style': 'background-color: #F5F5F5;margin-left:10px;color:#00B8D4;'}}) }}
+        {{ form_row(registrationForm.ville,{ 'attr': {'style': 'background-color: #F5F5F5;margin-left:10px;color:#00B8D4;'}}) }}
+        {{ form_row(registrationForm.adresse,{ 'attr': {'style': 'background-color: #F5F5F5;margin-left:10px;color:#00B8D4;'}}) }}
+        {{ form_row(registrationForm.plainPassword, {
+            'label': 'Password', 'attr': {'style': 'background-color: #F5F5F5;margin-left:10px;color:#00B8D4;'}  
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn btn-danger">Register</button>
+    {{ form_end(registrationForm) }}
+{% endblock %}

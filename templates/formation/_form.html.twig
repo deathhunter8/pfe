@@ -1,0 +1,10 @@
+{{ form_start(form) }}
+     <div class=" text-light border border-light col-6">
+   <div class="m-2 "> {{ form_row(form.nom, {'label': 'nom formation ', 'attr': {'style': 'background-color: #F5F5F5;margin-left:10px;color:#00B8D4;'}}) }}</div>
+      <div class="m-2 "> {{ form_row(form.specification, {'label': 'specification ', 'attr': {'style': 'background-color: #F5F5F5;margin-left:10px;color:#00B8D4;'}}) }}</div>
+   <div class="m-2 "> {{ form_row(form.materiel, {'label': 'materiel necessaire ', 'attr': {'style': 'background-color: #F5F5F5;margin-left:10px;color:#00B8D4;'}}) }}</div>
+   <div class="m-2 "> {{ form_row(form.prix, {'label': 'prix formation ', 'attr': {'style': 'background-color: #F5F5F5;margin-left:10px;color:#00B8D4;'}}) }}</div>
+   <div class="m-2 "> {{ form_row(form.dated, {'label': 'date de début '}) }}</div>
+   <div class="m-2 "> {{ form_row(form.datef, {'label': 'date de fin '}) }}</div>
+<button class="btn btn-danger" style="margin-left:15px;margin-bottom:10px ">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

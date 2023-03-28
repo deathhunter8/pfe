@@ -1,0 +1,18 @@
+{{ form_start(form) }}
+    <div class=" text-light border border-light col-6">
+   <div class="m-2 "> {{ form_row(form.nom, {'label': 'nom étudiant ', 'attr': {'style': 'background-color: #F5F5F5;margin-left:10px;color:#00B8D4;'}}) }}</div>
+   <div class="m-2"> {{ form_row(form.prenom, {'label': 'prénom ', 'attr': {'style': 'background-color: #F5F5F5;margin-left:10px;color:#00B8D4;'}}) }}</div>
+   <div class="m-2">{{ form_row(form.specification, {'label': 'specification ', 'attr': {'style': 'background-color: #F5F5F5;margin-left:10px;color:#00B8D4;'}}) }}</div>
+   <div class="m-2"> {{ form_row(form.numtel, {'label': 'numéro du téléphone', 'attr': {'style': 'background-color: #F5F5F5;margin-left:10px;color:#00B8D4;'}}) }}</div>
+    <div class="m-2">{{ form_row(form.email, {'label': 'email ', 'attr': {'style': 'background-color: #F5F5F5;margin-left:10px;color:#00B8D4;'}}) }}</div>
+    <div class="m-2">{{ form_row(form.salaire, {'label': 'salaire ', 'attr': {'style': 'background-color: #F5F5F5;margin-left:10px;color:#00B8D4;'}}) }}</div>
+    <div class="m-2">{{ form_row(form.montantp, {'label': 'montant payé', 'attr': {'style': 'background-color: #F5F5F5;margin-left:10px;color:#00B8D4;'}}) }}</div>
+   
+
+    <div class="m-2">{{ form_row(form.dcontrat, {'label': 'debut contrat '}) }}</div>
+    <div class="m-2">{{ form_row(form.fcontat, {'label': 'fin contrat '}) }}</div>
+    <div class="m-2">{{ form_row(form.nbabsence, {'label': 'nombre absences', 'attr': {'style': 'background-color: #F5F5F5;margin-left:10px;color:#00B8D4;'}}) }}</div>
+    
+    
+{{ form_end(form) }}
+<button class="btn btn-danger" style="margin-left:15px;margin-bottom:10px ">{{ button_label|default('Save') }}</button>

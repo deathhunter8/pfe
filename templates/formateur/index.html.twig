@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formateur index{% endblock %}
+
+{% block body %}
+    <div class="containe" >
+    <div class="navbar-container">
+      <nav class="navbar" >
+        <h1 class="navbar-logo">
+           <a href="#">LOGO</a>
+        </h1>
+      
+        <div class="navbar-menu">
+           <div id="navbarMenus">
+              <ul id="navBody" >
+                <li class="navList"><a href="#" >Acceuil</a></li>
+                <li class="navList"><a href="/etudiant">Etudiant</a></li>
+                <li class="navList"><a href="/formateur"class="active">Formateur</a></li>
+                <li class="navList"><a href="/formation">Formation</a></li>
+                <li class="navList"><a href="#">Contact</a></li>
+                
+              </ul>
+          </div>
+          <div id="toggle"></div>
+        </div>
+  
+      </nav>
+    </div>
+  </div>
+    <h1 style="margin-left:35%;margin-top:20px;margin-bottom:20px">Liste des formateurs</h1>
+
+    <table class="table table-bordered border-light">
+        <thead>
+            <tr>
+             
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Specification</th>
+                <th>Numero teléphone</th>
+                <th>Email</th>
+               
+                <th>Nombre d'absence</th>
+                <th>actions</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% for formateur in formateurs %}
+            <tr>
+           
+                <td>{{ formateur.nom }}</td>
+                <td>{{ formateur.prenom }}</td>
+                <td>{{ formateur.specification }}</td>
+                <td>{{ formateur.numtel }}</td>
+                <td>{{ formateur.email }}</td>
+                
+                <td>{{ formateur.nbabsence }}</td>
+                
+                <td>
+                 <button type="button" class="btn btn-info">   <a href="{{ path('app_formateur_show', {'id': formateur.id}) }}">Détails</a></button>
+                  <button type="button" class="btn btn-warning">  <a href="{{ path('app_formateur_edit', {'id': formateur.id}) }}">Modifier</a></button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button type="button" class="btn"  style="background-color:#E53935;"> <a href="{{ path('app_formateur_new') }}">Ajouter étudiant</a></button>
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+{% endblock %}
+{% endblock %}

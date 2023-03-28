@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Formateur{% endblock %}
+
+{% block body %}
+   <h1 style="margin-top;20px;margin-left:35%;margin-bottom:50px">  Ajouter nouveau Formateur</h1>
+<div style="margin-left:450px">
+    {{ include('formateur/_form.html.twig') }}
+
+  <button type="button" class="btn btn-success">  <a href="{{ path('app_formateur_index') }}">retour</a></button>
+{% endblock %}

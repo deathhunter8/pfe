@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Etudiant{% endblock %}
+
+{% block body %}
+
+    <h1 style="margin-top;20px;margin-left:35%;margin-bottom:50px">Ajouter un Etudiant</h1>
+<div style="margin-left:450px">
+    {{ include('etudiant/_form.html.twig') }}
+    <button type="button" class="btn btn-success"><a href="{{ path('app_etudiant_index') }}">retour</a></button>
+    </div>
+{% endblock %}

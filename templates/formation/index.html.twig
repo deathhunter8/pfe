@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formation index{% endblock %}
+
+{% block body %}
+<div class="containe" >
+    <div class="navbar-container">
+      <nav class="navbar" >
+        <h1 class="navbar-logo">
+           <a href="#"><img src="{{ asset('assets/images/logo6.png') }}"alt="Image" style="height:90px;"></a>
+        </h1>
+      
+        <div class="navbar-menu">
+           <div id="navbarMenus">
+              <ul id="navBody" >
+                <li class="navList"><a href="#" >Acceuil</a></li>
+                <li class="navList"><a href="/etudiant">Etudiant</a></li>
+                <li class="navList"><a href="/formateur">Formateur</a></li>
+                <li class="navList"><a href="/formation"class="active">Formation</a></li>
+                <li class="navList"><a href="#">Contact</a></li>
+                <a href="{{ path('app_logout') }}">Logout</a>
+
+              </ul>
+          </div>
+          <div id="toggle"></div>
+        </div>
+  
+      </nav>
+    </div>
+  </div>
+    <h1>Liste des formations</h1>
+
+      <button type="button" class="btn" style="background-color:#F06292;"><a href="{{ path('app_formation_new') }}">Create new</a></button>
+  
+        {% for formation in formations %}
+   
+    <div class="card text-center cardo" style="  width:400px;
+    margin-left:35%;
+    margin-bottom:30px;
+    background: linear-gradient(to right, #7b30e6, #3f98be, #4ae7f2);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  padding: 20px;">
+      <div class="card-body">
+        <h3 class="card-title" style="color:#69F0AE">{{ formation.nom }}</h5>
+      <h5>
+      {{ formation.prix }} dt</h5>
+       <h3>
+     
+            {% for formation in formation.formateur %}
+                {{ formation.nom }} ,
+            {% endfor %}</h3>
+</div>
+      <button type="button" class="btn" style="background-color:#FFA726;width:100px;margin-left:37%;margin-bottom:10px"> <a href="{{ path('app_formation_show', {'id': formation.id}) }}">show</a></button>
+      <button type="button" class="btn" style="background-color:#9575CD;width:100px;margin-left:37%"><a href="{{ path('app_formation_edit', {'id': formation.id}) }}">edit</a></button>
+   </div>
+            
+        
+        {% endfor %}
+        
+  
+
+   
+{% endblock %}

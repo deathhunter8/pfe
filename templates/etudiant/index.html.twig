@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etudiant index{% endblock %}
+
+{% block body %}
+<div class="containe" >
+    <div class="navbar-container">
+      <nav class="navbar" >
+        <h1 class="navbar-logo">
+           <a href="#">LOGO</a>
+        </h1>
+      
+        <div class="navbar-menu">
+           <div id="navbarMenus">
+              <ul id="navBody" >
+                <li class="navList"><a href="#" >Acceuil</a></li>
+                <li class="navList"><a href="/etudiant"class="active">Etudiant</a></li>
+                <li class="navList"><a href="/formateur">Formateur</a></li>
+                <li class="navList"><a href="/formation">Formation</a></li>
+                <li class="navList"><a href="#">Contact</a></li>
+                
+              </ul>
+          </div>
+          <div id="toggle"></div>
+        </div>
+  
+      </nav>
+    </div>
+  </div>
+    <h1 style="margin-left:35%;margin-top:20px;margin-bottom:20px">Liste des étudiants</h1>
+
+    <table class="table table-bordered border-light">
+        <thead>
+            <tr>
+                
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Numéro téléphone</th>
+                <th>Email</th>
+                <th>Numéro de groupe</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etudiant in etudiants %}
+            <tr>
+                
+                <td>{{ etudiant.nom }}</td>
+                <td>{{ etudiant.prenom }}</td>
+                <td>{{ etudiant.numtel }}</td>
+                <td>{{ etudiant.email }}</td>
+                
+                <td>{{ etudiant.numgroupe }}</td>
+                <td>
+                   <button type="button" class="btn btn-info"> <a href="{{ path('app_etudiant_show', {'id': etudiant.id}) }}">Détails</a></button>
+                    <button type="button" class="btn btn-warning"><a href="{{ path('app_etudiant_edit', {'id': etudiant.id}) }}">Modifier</a></button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button type="button" class="btn"  style="background-color:#E53935;"><a href="{{ path('app_etudiant_new') }}">Ajouter étudiant</a></button>
+    <script src="https://kit.fontawesome.com/eb4dedf140.js" crossorigin="anonymous"></script>
+    {% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+{% endblock %}
+{% endblock %}

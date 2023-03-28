@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formation{% endblock %}
+
+{% block body %}
+    <h1>{{ formation.nom }}</h1>
+
+    <table class="table border border-light" style="margin-top:120px">
+        <tbody>
+          
+            <tr>
+                <th>Specification</th>
+                <td>{{ formation.specification }}</td>
+            </tr>
+            <tr>
+                <th>Materiel</th>
+                <td>{{ formation.materiel }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ formation.prix }}</td>
+            </tr>
+            <tr>
+                <th>Date début</th>
+                <td>{{ formation.dated ? formation.dated|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date fin</th>
+                <td>{{ formation.datef ? formation.datef|date('Y-m-d') : '' }}</td>
+            </tr>
+             <tr>
+                <th>nombre d'étudiant</th>
+                <td> {{ formation.etudiants|length }}
+                </td>
+            </tr>
+            <tr>
+    <th>Formateur</th>
+    <td>
+     <ul>
+            {% for formation in formation.formateur %}
+                <li>{{ formation.nom }}</li>
+            {% endfor %}</td>
+</tr>
+        </tbody>
+    </table>
+
+  <div style="margin-left:40%"> {{ include('formation/_delete_form.html.twig') }}</div>
+  <div style="margin-left:42%"><span class="badge bg-success"> <a href="{{ path('app_formation_index') }}">Retour</a></span></div>
+
+    
+
+    
+{% endblock %}

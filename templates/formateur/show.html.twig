@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formateur{% endblock %}
+
+{% block body %}
+ 
+<table class="table border border-light" style="margin-top:120px">
+        <tbody>
+            
+            <tr>
+                <th>Nom</th>
+                <td>{{ formateur.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ formateur.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Specification</th>
+                <td>{{ formateur.specification }}</td>
+            </tr>
+            <tr>
+                <th>Numero telephone</th>
+                <td>{{ formateur.numtel }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ formateur.email }}</td>
+            </tr>
+            <tr>
+                <th>Salaire</th>
+                <td>{{ formateur.salaire }}</td>
+            </tr>
+            <tr>
+                <th>Montant payé</th>
+                <td>{{ formateur.montantp }}</td>
+            </tr>
+            <tr>
+                <th>Début contrat</th>
+                <td>{{ formateur.dcontrat ? formateur.dcontrat|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Fin contrat</th>
+                <td>{{ formateur.fcontat ? formateur.fcontat|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Nombre d'absence</th>
+                <td>{{ formateur.nbabsence }}</td>
+            </tr>
+            <tr>
+                <th>formation</th>
+                <td>{{ formateur.formation }}</td>
+            </tr>
+        </tbody>
+    </table>
+<div style="margin-left:40%"> {{ include('formateur/_delete_form.html.twig') }}</div>
+    <div style="margin-left:42%"><span class="badge bg-success"><a href="{{ path('app_formateur_index') }}">Retour</a></span></div>
+
+    
+
+   
+{% endblock %}

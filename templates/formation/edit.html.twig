@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Formation{% endblock %}
+
+{% block body %}
+   <div style="margin-left:35%;margin-top:20px;margin-bottom:20px"> <h1>Modifier Formation</h1></div>
+<div style="margin-left:400px">
+    {{ include('formation/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <button type="button" class="btn btn-success"> <a href="{{ path('app_formation_index') }}">Retour</a></button>
+
+  
+{% endblock %}
